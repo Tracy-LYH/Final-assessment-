@@ -1,11 +1,9 @@
 
 /*
- *   api 模块//接口路由
+ *   login 模块//接口路由
  *   /                            首页
  *   /register                    用户注册
  *   /login                       用户登录
- *   /comment                     评论获取
- *   /comment/post                评论提交
  */
 
 var express = require('express');
@@ -43,8 +41,29 @@ routerApi.post('/user/register', function (req, res, next) {
     if (username === '') {
         responseData.code = '1';
         responseData.message = '用户名不能为空';
-        res.json(responseData);
-        return;
+        res.js//留言评论提交
+        routerApi.post('/comment/post', function (req, res, next) {
+            //内容的ID
+            var contentID = req.body.contentID;
+            //定义评论 数组中字段
+            var postData = {
+                username: req.userInfo.username || '游客',
+                postTime: new Date(),
+                comment: req.body.comment
+            }
+            //查询当前这篇内容的信息
+            Content.findOne({
+                _id: contentID
+            }).then(function (content) {
+                content.comments.push(postData);
+                return content.save();
+            }).then(function (newContent) {
+                responseData.message = "评论成功";
+                responseData.data = newContent;
+                res.json(responseData);
+            });
+        });
+        ;
     }
     //密码检测
     if (password === '' || repassword === '') {
@@ -90,11 +109,17 @@ routerApi.post('/user/register', function (req, res, next) {
 
 });
 //用户登录
-routerApi.post('/user/login', function (req, res, next) {
-    var uName = req.body.username;
-    var pWord = req.body.password;
-    //空值等检测放在前端处理
+routerApi.get('/', function (req, res) {
+    res.render('main/login');
+});
 
+routerApi.post('/doLogin', function (req, res) {
+    console.log(req.body);
+    var uName = req.body.name;
+    var pWord = req.body.password;
+    //console.log(uName);
+    //console.log(pWord);
+    //空值等检测放在前端处理
     //后台数据验证处理
     User.findOne({
         username: uName,
@@ -125,6 +150,7 @@ routerApi.post('/user/login', function (req, res, next) {
         }));
         res.json(responseData);
         // console.log('这里打印 登录成功服务端返回给客户端的 返回信息 ' + responseData);
+        res.render('main/mainIndex');
         return;
         // }
     });
@@ -136,42 +162,5 @@ routerApi.get('/user/logout', function (req, res) {
     res.json(responseData);
     return;
 });
-
-//文章加载获取指定文章的所有评论
-routerApi.get('/comment', function (req, res, next) {
-    var contentID = req.query.contentID || '';
-    //查询当前这篇内容的信息
-    Content.findOne({
-        _id: contentID
-    }).then(function (content) {
-        responseData.data = content.comments.reverse();
-        res.json(responseData);
-    });
-});
-
-
-//留言评论提交
-routerApi.post('/comment/post', function (req, res, next) {
-    //内容的ID
-    var contentID = req.body.contentID;
-    //定义评论 数组中字段
-    var postData = {
-        username: req.userInfo.username || '游客',
-        postTime: new Date(),
-        comment: req.body.comment
-    }
-    //查询当前这篇内容的信息
-    Content.findOne({
-        _id: contentID
-    }).then(function (content) {
-        content.comments.push(postData);
-        return content.save();
-    }).then(function (newContent) {
-        responseData.message = "评论成功";
-        responseData.data = newContent;
-        res.json(responseData);
-    });
-});
-
 
 module.exports = routerApi;

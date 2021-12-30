@@ -30,8 +30,10 @@ router.use(function (req, res, next) {
     })
 });
 //程序主入口 Login /register
-
 router.get('/', function (req, res, next) {
+    res.render('main/denglu', data);
+});
+router.get('/ceshi', function (req, res, next) {
     // console.log('渲染首页模板的用户数据 ' + JSON.stringify(req.userInfo));
 
     var reqPage = Number((req.query.page) === undefined ? 0 : req.query.page);

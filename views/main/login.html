@@ -3,16 +3,18 @@
     <head>
         <meta charset="UTF-8">
         <title>login</title>
-        <link rel="stylesheet" href="/css/login.css">
+        <link rel="stylesheet" href="/public/css/login.css">
     </head>
     <body>
-        <div class="container">
+        <div class="container" id="loginBox">
             <form action="/login/doLogin" method="post">
                 <h2>用户登录</h2>
                 <input type="text" name="name" id="UserName" placeholder="UserName">
                 <input type="password" name="password" id="PassWord" placeholder="PassWord">
-                <input type="submit" value="Login" id="Login">
+                <input type="submit" value="Login" id="loginBtn">
+                <!--<button class="registerBtn" id="loginBtn">登录</button>-->
             </form>
         </div>
     </body>
+    <script type="text/javascript" src="../../public/js/main/userIndex.js"></script>
 </html>
