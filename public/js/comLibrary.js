@@ -1,7 +1,3 @@
-/**
- * Created by zhangyi on 2017/6/15.
- */
-
 
 /*
  *   通用js方法等

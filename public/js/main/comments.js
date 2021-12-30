@@ -1,6 +1,3 @@
-/**
- * Created by zhangyi on 2017/6/15.
- */
 
 /*
  *   评论相关Js

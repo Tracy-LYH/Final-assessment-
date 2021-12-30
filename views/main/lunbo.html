@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>轮播图案例</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+          <link rel="stylesheet" href="../../public/plug-in/bootstrap-3.3.7/css/bootstrap.css">
+          <link rel="stylesheet" href="../../public/plug-in/bootstrap-3.3.7/css/bootstrap-theme.css">
+    <style>
+        body{
+            padding: 30px;
+        }
+        
+        h3,p{
+            color: #000033;
+        }
+ 
+		/*修改插件中的样式的，就是用自己定义的样式覆盖原来的样式*/
+        .carousel-indicators li {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            margin: 1px;
+            text-indent: -999px;
+            cursor: pointer;
+            background-color: #000 \9;
+            background-color: rgba(0, 0, 0, 0);
+            border: 2px solid #CC3300;     /* 覆盖插件里圆圈的颜色*/
+            border-radius: 10px
+        }
+ 
+        .carousel-indicators .active {
+            width: 12px;
+            height: 12px;
+            margin: 0;
+            background-color: #CC3300;     /* 覆盖插件里圆圈的颜色*/
+        }
+ 
+    </style>
+</head>
+ 
+<body>
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="2000">
+<!--data-ride="carousel"表示页面加载后自动轮播，data-interval="1000"表示等待时间为2000秒-->
+ 
+    <!-- 图片容器 -->
+    <div class="carousel-inner" >
+        <div class="item active">
+            <img src="../../images/main/lb1.jpg" alt="...">
+            <div class="carousel-caption ">
+			    <h3>图片一</h3>
+                <p>这里是图片的描述</p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="../../images/main/lb1.jpg" alt="...">
+            <div class="carousel-caption">
+			    <h3>图片二</h3>
+                <p>这里是图片的描述</p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="../../images/main/lb1.jpg" alt="...">
+            <div class="carousel-caption">
+			    <h3>图片三</h3>
+                <p>这里是图片的描述</p>
+            </div>
+        </div>
+		<div class="item">
+            <img src="../../images/main/lb1.jpg" alt="...">
+            <div class="carousel-caption">
+			    <h3>图片四</h3>
+                <p>这里是图片的描述</p>
+            </div>
+        </div>
+		<div class="item">
+            <img src="../../images/main/lb1.jpg" alt="...">
+            <div class="carousel-caption">
+			    <h3>图片五</h3>
+                <p>这里是图片的描述</p>
+            </div>
+        </div>
+    </div>
+ 
+     <!--圆圈指示符-->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li><!--索引下标从0开始-->
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+		<li data-target="#myCarousel" data-slide-to="2"></li>
+		<li data-target="#myCarousel" data-slide-to="3"></li>
+		<li data-target="#myCarousel" data-slide-to="4"></li>
+    </ol>
+ 
+    <!-- 左右控制按钮 -->
+    <a class="left carousel-control" href="#myCarousel"  data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" ></span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+</div>
+<script type="text/javascript" src="../../public/plug-in/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../public/plug-in/bootstrap-3.3.7/js/bootstrap.js"></script>
+</body>
+</html>
