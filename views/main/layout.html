@@ -22,29 +22,29 @@
                 <div class="item active">
                     <img src="../../public/images/main/lb1.jpeg" alt="...">
                     <div class="carousel-caption ">
-                        <h3>图片一</h3>
-                        <p>这里是图片的描述</p>
+                        <h3>校园风光</h3>
+                        <p>浙江财经大学油桶</p>
                     </div>
                 </div>
                 <div class="item">
                     <img src="../../public/images/main/lb2.jpeg" alt="...">
                     <div class="carousel-caption">
-                        <h3>图片二</h3>
-                        <p>这里是图片的描述</p>
+                        <h3>校园文化</h3>
+                        <p>校训</p>
                     </div>
                 </div>
                 <div class="item">
                     <img src="../../public/images/main/lb3.jpeg" alt="...">
                     <div class="carousel-caption">
-                        <h3>图片三</h3>
-                        <p>这里是图片的描述</p>
+                        <h3>校园文化</h3>
+                        <p>清廉文化</p>
                     </div>
                 </div>
                 <div class="item">
                     <img src="../../public/images/main/lb4.jpeg" alt="...">
                     <div class="carousel-caption">
-                        <h3>图片四</h3>
-                        <p>这里是图片的描述</p>
+                        <h3>校园活动</h3>
+                        <p>浙江财经大学艺术节</p>
                     </div>
                 </div>
             </div>
@@ -69,15 +69,15 @@
     <nav class="moduleBar">
         <ul>
             {% if category =='' %}
-            <li><a class="active" href="/">首页</a></li>
+            <li><a class="active" href="/home">首页</a></li>
             {% else %}
-            <li><a href="/">首页</a></li>
+            <li><a href="/home">首页</a></li>
             {% endif %}
             {% for cate in categories %}
             {% if category === cate.id %}
-            <li><a class="active" href="/?category={{ cate.id }}">{{ cate.name }}</a></li>
+            <li><a class="active" href="/home?category={{ cate.id }}">{{ cate.name }}</a></li>
             {% else %}
-            <li><a href="/?category={{ cate.id }}">{{ cate.name }}</a></li>
+            <li><a href="/home?category={{ cate.id }}">{{ cate.name }}</a></li>
             {% endif %}
             {% endfor %}
         </ul>
@@ -90,55 +90,19 @@
                 {% endblock %}
             </div>
             <div class="rightModule borderColor">
-                {% if userInfo._id %}
                 <div class="rightBox borderColor" id="userInfoBox">
-                    <div class="title"><span>用户信息</span></div>
-                    <p class="line">{{ userInfo.username }}</p>
-                    {% if userInfo.isAdmin %}
-                    <p class="line"><span>欢迎登陆！</span><a href="/admin">进入后台管理？</a></p>
-                    {% else %}
-                    <p class="line">欢迎你！</p>
-                    {% endif %}
+                    <form id="userInfoForm">
+                        <h2>{{ userInfo.username }}，您好！</h2>
+                        {% if userInfo.isAdmin %}
+                        <a href="/home"><input type="button" value="查看新闻发布平台"></a>
+                    </br>
+                        <a href="/admin"><input type="button" value="进入后台管理"></a>
+                        {% else %}
+                        <a href="/home"><input type="button" value="查看新闻发布平台"></a>
+                        {% endif %}
                     <div class="textRight"><a href="javascript:;" class="colMint" name="logout">退出</a></div>
+                </form>
                 </div>
-                {% else %}
-                <div class="rightBox borderColor" id="loginBox">
-                    <div class="title"><span>登录</span></div>
-                    <div class="line"><span class="colDark">用户名:</span><input name="username" type="text"></div>
-                    <div class="line"><span class="colDark">密码:</span><input name="password" type="text"></div>
-                    <div class="line"><span class="colDark"></span>
-                        <button class="registerBtn" id="loginBtn">登录</button>
-                    </div>
-                    <p class="textRight">
-                        <a href="javascript:;" class="colMint" name="backLogin">返回注册</a>
-                        <a href="javascript:;" class="colMint" name="getPassword">找回密码</a>
-                    </p>
-                    <p class="colWarning textCenter"></p>
-                </div>
-                <div class="rightBox borderColor boxHidden" id="registerBox">
-                    <div class="title"><span>注册</span></div>
-                    <div class="line"><span class="colDark">用户名:</span><input name="username" type="text"></div>
-                    <div class="line"><span class="colDark">密码:</span><input name="password" type="text"></div>
-                    <div class="line"><span class="colDark">确认:</span><input name="repassword" type="text"></div>
-                    <div class="line"><span class="colDark"></span>
-                        <button class="registerBtn" id="registerBtn">注册</button>
-                    </div>
-                    <p class="textRight">已有账号 ?<a href="javascript:;" class="colMint" name="login">马上登录</a></p>
-                    <p class="colWarning textCenter"></p>
-                </div>
-                {% endif %}
-                <!--TODO  其他信息区域-->
-                <div class="rightBox borderColor">
-                    <div class="title"><span>Some</span></div>
-                    <p class="line">Some ...</p>
-                </div>
-                <!--TODO  其他信息区域-->
-                <div class="rightBox borderColor">
-                    <div class="title"><span>Other Area</span></div>
-                    <p class="line">Some ...</p>
-                </div>
-
-                s
             </div>
         </div>
     </div>
@@ -146,7 +110,6 @@
     <!--底部-->
     <footer>Copyright © -- Tracy-LYH -- </footer>
 </div>
-<script type="text/javascript" src="../../public/plug-in/jquery-3.1.1.js"></script>
 <script type="text/javascript" src="../../public/plug-in/bootstrap-3.3.7/js/bootstrap.js"></script>
 </body>
 <script type="text/javascript" src="../../public/plug-in/jquery-3.1.1.js"></script>

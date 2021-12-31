@@ -429,7 +429,7 @@ routerAdmin.get('/content/delete', function (req, res, next) {
 //退出
 routerAdmin.get('/logout', function (req, res) {
     req.cookies.set('userInfo', null);
-    res.render('main/mainIndex', {});
+    res.render('main/denglu', {});
 });
 
 module.exports = routerAdmin;

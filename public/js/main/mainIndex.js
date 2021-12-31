@@ -144,7 +144,7 @@ function logoutFunc() {
                 // $loginBtn.parents(".rightBox").removeClass("boxHidden");
                 // $registerBtn.parents('.rightBox').addClass('boxHidden');
                 //可以直接刷新当前主页面
-                window.location.reload();
+                window.location.href='/';
                 //TODO 左侧文章等页面数据切换等
             }
 

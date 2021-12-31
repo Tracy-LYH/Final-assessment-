@@ -21,7 +21,7 @@
     cursor: pointer;
     background-color: #000 \9;
     background-color: rgba(0, 0, 0, 0);
-    border: 2px solid #CC3300;     /* 覆盖插件里圆圈的颜色*/
+    border: 2px solid #046b5d;     /* 覆盖插件里圆圈的颜色*/
     border-radius: 10px
 }
 
@@ -29,7 +29,7 @@
     width: 12px;
     height: 12px;
     margin: 0;
-    background-color: #CC3300;     /* 覆盖插件里圆圈的颜色*/
+    background-color: #046b5d;     /* 覆盖插件里圆圈的颜色*/
 }
 /*header*/
 header {
@@ -74,22 +74,21 @@ nav ul li a {
 
 nav ul a.active {
     cursor: pointer;
-    color: #f6f8f8;
-    border-bottom: 2px solid #5c0000;
+    color: #006699;
+    border-bottom: 2px solid #006699;
 }
 
 nav ul li a:hover {
     cursor: pointer;
-    color: #f6f8f8;
-    border-bottom: 2px solid #5c0000;
+    color: #006699;
+    border-bottom: 2px solid #006699;
 }
 
 /*content*/
 .content-wrapper {
     /*background: rgba(225, 225, 225, 0.6);*/
-    width: 80%;
-    margin: 10px auto;
-    height: 600px;
+    margin: 10px;
+    height: 630px;
     border-radius: 4px;
 }
 
@@ -106,8 +105,13 @@ nav ul li a:hover {
     min-height: 80px;
     margin: 6px 6px;
     border-width: 1px;
-    border-style: dashed;
-    background: rgba(225, 225, 225, 0.6);
+    background: rgba(225, 225, 225, 0.8);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
 }
 
 .content-wrapper .rightModule {
@@ -120,19 +124,43 @@ nav ul li a:hover {
 
 }
 
-.content-wrapper .rightModule .rightBox {
-    width: 94%;
+.rightModule .rightBox > #userInfoForm{
     min-height: 80px;
-    margin: 6px 6px;
     border-width: 1px;
-    border-style: dashed;
-    background: rgba(225, 225, 225, 0.6)
+    background: rgba(225, 225, 225, 0.8);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.rightModule .rightBox > form > h2{
+    font-size: 28px;
+    font-weight: 120;
+    padding:10px;
+    margin: 10px;
+    color: rgb(7, 54, 56);
+}
+
+.rightModule .rightBox > form > a> input{
+    font-size: 20px;
+    font-weight: 120;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    text-align: center;
+    background:  rgb(6, 64, 68,0.8);
+    color:rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
 
 /*leftModule 文章列表区域*/
 .leftModule .leftBox .articleTitle {
     text-align: center;
-    color: #006699;
+    color: rgb(15, 70, 71);
     padding: 6px 0px;
     width: 60%;
     margin: 0 auto;
@@ -143,6 +171,7 @@ nav ul li a:hover {
     line-height: 30px;
     text-align: center;
     text-indent: 10px;
+    font-size: 16px;
 }
 
 .leftModule .leftBox .colDefault .colInfo {
@@ -150,7 +179,7 @@ nav ul li a:hover {
 }
 
 .leftModule .leftBox .colDefault span {
-    color: #006699;
+    color:rgb(15, 70, 71);
 }
 
 .leftModule .leftBox .summary {
@@ -158,6 +187,7 @@ nav ul li a:hover {
     max-height: 80px;
     line-height: 20px;
     text-indent: 10px;
+    font-size: 16px;
 }
 
 .leftModule .leftBox .contentDetail {
@@ -168,18 +198,19 @@ nav ul li a:hover {
 }
 
 .leftModule .leftBox .readButton {
-    width: 90px;
+    width: 120px;
     margin: 6px 12px;
     cursor: pointer;
 }
 
 .leftModule .leftBox .readButton a {
-    color: #006699;
-    text-decoration: none
+    color:rgb(7, 54, 56);
+    text-decoration: none;
+    font-size: 20px;
 }
 
 .leftModule .leftBox .readButton a:hover {
-    color: #df6b31;
+    color: #209bac;
 }
 
 /*评论区域*/
@@ -190,6 +221,7 @@ nav ul li a:hover {
 .leftModule .message .colInfo {
     height: 30px;
     line-height: 30px;
+    width: 500px;
     margin: 0 15px;
 }
 
@@ -281,11 +313,12 @@ em{
     margin:20px 15px;
     min-height: 40px;
     line-height: 20px;
+    width: 500px;
 }
 .message .messageList .messageBox{
     min-height: 40px;
     line-height: 20px;
-    background: #ccc;
+    background: rgb(255, 255, 255,0.5);
     margin:10px 0px;
 }
 .message .messageList .messageBox .messageLine{
@@ -315,8 +348,8 @@ footer {
     margin: 6px 6px;
     text-align: center;
     height: 40px;
-    background: rgba(225, 225, 225, 0.6);
-    line-height: 40px;
+    background: rgba(225, 225, 225);
+    line-height: 30px;
     color: #fff;
 }
 
@@ -325,12 +358,13 @@ footer {
 }
 
 .pager a:hover {
-    color: #df6b31;
+    color: #83ebe5;
 }
 
 .pager .previous {
     width: 20%;
     float: left;
+    
 }
 
 .pager .pageInfo {

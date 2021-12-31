@@ -22,12 +22,12 @@
                 {% if userInfo._id %}
                 <div class="rightBox borderColor" id="userInfoBox">
                     <form id="userInfoForm">
-                        <h2>用户信息</h2>
-                        <h2>{{ userInfo.username }}<h2>
+                        <h2>{{ userInfo.username }}，您好！</h2>
                     {% if userInfo.isAdmin %}
-                    <h2>欢迎登陆！</span><a href="/ceshi">查看新闻发布平台</a><a href="/admin">进入后台管理？</a></h2>
+                        <a href="/home"><input type="button" value="查看新闻发布平台"></a>
+                        <a href="/admin"><input type="button" value="进入后台管理"></a>
                     {% else %}
-                    <h2>欢迎你！</h2>>
+                    <a href="/home"><input type="button" value="查看新闻发布平台"></a>
                     {% endif %}
                     <div class="textRight"><a href="javascript:;" class="colMint" name="logout">退出</a></div>
                     </form>

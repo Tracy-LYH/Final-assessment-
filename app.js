@@ -38,7 +38,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 //设置cookie
 app.use(function (req, res, next) {
     req.cookies = new Cookies(req, res);
-    console.log('这里打印服务端返回客户端的cookies  ' + req.cookies.get('userInfo'));
+    //console.log('这里打印服务端返回客户端的cookies  ' + req.cookies.get('userInfo'));
     //解析用户登录的cookies信息
     req.userInfo = {};
     if (req.cookies.get('userInfo')) {
@@ -74,7 +74,7 @@ app.use('/login', require('./routers/login'));
 
 //监听Http请求  XXX端口的信息数据
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/iBlog',{useMongoClient: true}, function (err) {
+mongoose.connect('mongodb://172.21.2.236:27017/190110910216',{useMongoClient: true}, function (err) {
     if (err) {
         console.log(err);
         return;

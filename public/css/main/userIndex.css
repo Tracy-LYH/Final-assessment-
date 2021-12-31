@@ -32,12 +32,42 @@
 
 }
 
+.rightModule .rightBox > form > a> input{
+    font-size: 20px;
+    font-weight: 120;
+    width: 450px;
+    padding: 0;
+    margin: 0;
+    padding: 8px 0;
+    margin: 8px 0;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    text-align: center;
+    background: rgba(246, 249, 250, 0.226);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+
 
 .bgDanger{
     text-align: center;
     color: #fff;
     background: #ccc;
     margin:20px 15px !important;
+}
+
+.rightModule .rightBox > #userInfoForm{
+    box-sizing: border-box;
+    width: 600px;
+    height:200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 50px;
+    background: rgba(107, 179, 197, 0.9);
+    border-radius: 10px;
 }
 
 .rightModule .rightBox > form{
@@ -49,7 +79,7 @@
     justify-content: center;
     align-items: center;
     padding: 20px 50px;
-    background: rgba(71, 150, 170, 0.7);
+    background: rgba(107, 179, 197, 0.9);
     border-radius: 10px;
 }
 .rightModule .rightBox > form > h2{
