@@ -21,7 +21,6 @@ $(function () {
         var thisTextName = $(this).attr('name');
         if (thisTextName === 'login') {
             $registerBtn.parents('.rightBox').addClass('boxHidden');
-
             $loginBtn.parents('.rightBox').removeClass('boxHidden');
         }
         else if (thisTextName === 'backLogin') {
@@ -90,7 +89,8 @@ function uploadRegisterDataFunc() {
 //用户登录控制
 function loginFunc() {
     var loginBox = $("#loginBox");
-    var username = loginBox.find('input[name="name"]').val();
+    var userInfoBox = $("#userInfoBox");
+    var username = loginBox.find('input[name="username"]').val();
     var password = loginBox.find('input[name="password"]').val();
     //取表单填写数据//
     if (username === '' || password === '') {
@@ -100,7 +100,7 @@ function loginFunc() {
         //采用 jQuery AJax方式上传
         $.ajax({
             type: 'post',
-            url: 'login/doLogin',
+            url: 'api/user/login',
             data: {
                 username: username,
                 password: password

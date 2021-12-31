@@ -7,16 +7,31 @@
  */
 
 var express = require('express');
-var routerApi = express.Router();
+var routerLogin = express.Router();
 
 var User = require('../models/User');
+var Category = require('../models/Category');//分类模型
 var Content = require('../models/Content');
 
 // var responseData = require('../models/ReturnDataFormat');
-
+var data;
+//处理通用数据
+routerLogin.use(function (req, res, next) {
+    data = {
+        userInfo: req.userInfo,
+        categories: []
+    };
+    Category.find().then(function (categories) {
+        // console.log(categories);
+        data.categories = categories;
+        // //读取内容的总数
+        // return Content.where(whereStr).count();
+        next();
+    })
+});
 // 构造返回 json 格式
 var responseData;
-routerApi.use(function (req, res, next) {
+routerLogin.use(function (req, res, next) {
     responseData = {
         code: 0,
         message: ''
@@ -32,7 +47,7 @@ routerApi.use(function (req, res, next) {
  */
 
 //注册接口
-routerApi.post('/user/register', function (req, res, next) {
+routerLogin.post('/user/register', function (req, res, next) {
     var username = req.body.username;
     var password = req.body.password;
     var repassword = req.body.repassword;
@@ -42,7 +57,7 @@ routerApi.post('/user/register', function (req, res, next) {
         responseData.code = '1';
         responseData.message = '用户名不能为空';
         res.js//留言评论提交
-        routerApi.post('/comment/post', function (req, res, next) {
+        routerLogin.post('/comment/post', function (req, res, next) {
             //内容的ID
             var contentID = req.body.contentID;
             //定义评论 数组中字段
@@ -109,11 +124,11 @@ routerApi.post('/user/register', function (req, res, next) {
 
 });
 //用户登录
-routerApi.get('/', function (req, res) {
+routerLogin.get('/', function (req, res) {
     res.render('main/login');
 });
 
-routerApi.post('/doLogin', function (req, res) {
+routerLogin.post('/doLogin', function (req, res) {
     console.log(req.body);
     var uName = req.body.name;
     var pWord = req.body.password;
@@ -125,11 +140,12 @@ routerApi.post('/doLogin', function (req, res) {
         username: uName,
         password: pWord
     }).then(function (userInfo) {
-        console.log(userInfo);
+        console.log('11111 '+ userInfo);
         if (!userInfo) {
             responseData.code = '1';
             responseData.message = '用户名或密码错误';
             res.json(responseData);
+            //console.log('说错了');
             return;
         }
         // else {
@@ -139,6 +155,7 @@ routerApi.post('/doLogin', function (req, res) {
         // res.redirect('/');
         responseData.code = '0';
         responseData.message = '成功';
+        //console.log('说没错');
         //添加返回用户cookie数据
         responseData.userInfo = {
             _id: userInfo._id,
@@ -148,19 +165,19 @@ routerApi.post('/doLogin', function (req, res) {
             _id: userInfo._id,
             username: userInfo.username
         }));
+        //res.redirect('/admin');
         res.json(responseData);
         // console.log('这里打印 登录成功服务端返回给客户端的 返回信息 ' + responseData);
-        res.render('main/mainIndex');
         return;
         // }
     });
 });
 //退出
-routerApi.get('/user/logout', function (req, res) {
+routerLogin.get('/user/logout', function (req, res) {
     responseData.code = '0';
     req.cookies.set('userInfo', null);
     res.json(responseData);
     return;
 });
 
-module.exports = routerApi;
+module.exports = routerLogin;

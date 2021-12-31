@@ -12,7 +12,7 @@ body{
     width: 100vw;
     height: 100vh;
     /* background-color: rgb(0, 161, 234); */
-    background: #444 url("../../public/images/main/Back.jpg");
+    background: rgb(250, 173, 173);
     display: flex;
     justify-content: center;
     align-items: center;

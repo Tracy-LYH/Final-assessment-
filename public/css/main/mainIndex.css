@@ -74,14 +74,14 @@ nav ul li a {
 
 nav ul a.active {
     cursor: pointer;
-    color: #006699;
-    border-bottom: 2px solid #006699;
+    color: #f6f8f8;
+    border-bottom: 2px solid #5c0000;
 }
 
 nav ul li a:hover {
     cursor: pointer;
-    color: #006699;
-    border-bottom: 2px solid #006699;
+    color: #f6f8f8;
+    border-bottom: 2px solid #5c0000;
 }
 
 /*content*/

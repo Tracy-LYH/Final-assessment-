@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新闻发布</title>
+    <title>login</title>
+        <link rel="stylesheet" href="/public/css/login.css">
+</head>
+<body>
+    {% if userInfo._id %}
+        <div class="container" id="loginBox">
+            <form action="/login/doLogin" method="post">
+                <h2>你好</h2>
+                <input type="text" name="name" id="UserName" placeholder="UserName">
+                <input type="password" name="password" id="PassWord" placeholder="PassWord">
+                <input type="submit" value="Login" id="loginBtn">
+                <!--<button class="registerBtn" id="loginBtn">登录</button>-->
+            </form>
+        </div>
+        {% else %}
+        <div class="container" id="loginBox">
+            <form action="/login/doLogin" method="post">
+                <h2>用户登录</h2>
+                <input type="text" name="name" id="UserName" placeholder="UserName">
+                <input type="password" name="password" id="PassWord" placeholder="PassWord">
+                <input type="submit" value="Login" id="loginBtn">
+                <!--<button class="registerBtn" id="loginBtn">登录</button>-->
+            </form>
+        </div>
+        {% endif %}
+    <!--底部-->
+    <footer>Copyright © -- Tracy-LYH -- </footer>
+</div>
+<script type="text/javascript" src="../../public/plug-in/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../public/plug-in/bootstrap-3.3.7/js/bootstrap.js"></script>
+</body>
+<script type="text/javascript" src="../../public/plug-in/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../public/js/main/mainIndex.js"></script>
+</html>

@@ -1,0 +1,178 @@
+/*
+    博客首页 Style
+    ...
+*/
+/*大背景*/
+.main-wrapper {
+    width: 100vw;
+    height: 100vh;
+    background: #444 url("../../images/main/Back.jpg");
+    justify-content: center;
+    align-items: center;
+
+}
+/*修改插件中的样式的，就是用自己定义的样式覆盖原来的样式*/
+
+/*content*/
+.content-wrapper {
+    /*background: rgba(225, 225, 225, 0.6);*/
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.content-wrapper .rightModule {
+    box-sizing: border-box;
+    width: 500px;
+    height:350px;
+
+}
+
+
+.bgDanger{
+    text-align: center;
+    color: #fff;
+    background: #ccc;
+    margin:20px 15px !important;
+}
+
+.rightModule .rightBox > form{
+    box-sizing: border-box;
+    width: 500px;
+    height:350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 50px;
+    background: rgba(71, 150, 170, 0.7);
+    border-radius: 10px;
+}
+.rightModule .rightBox > form > h2{
+    font-size: 30px;
+    font-weight: 120;
+    padding: 0;
+    margin: 0;
+    /* margin-bottom: 10px; */
+    color: #fff;
+}
+.rightModule .rightBox > form > input{
+    font-size: 20px;
+    font-weight: 120;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    padding: 8px 0;
+    margin: 8px 0;
+    /* border: 1px solid rgb(0, 161, 234); */
+    border: 1px solid transparent;
+    border-radius: 3px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+.rightModule .rightBox  > form > #loginBtn{
+    color: #fff;
+    outline: none;
+    background: rgba(107, 179, 197, 0.9);
+    border: 1px solid transparent;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.rightModule .rightBox  > form > #registerBtn{
+    color: #fff;
+    outline: none;
+    background: rgba(107, 179, 197, 0.9);
+    border: 1px solid transparent;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+
+
+/*rightModule 注册/登录/热门话题 等等区域*/
+.rightModule .rightBox .title {
+    font-size: 30px;
+    font-weight: 120;
+    padding: 0;
+    margin: 0;
+    /* margin-bottom: 10px; */
+    color: #fff;
+}
+
+.rightModule .rightBox .line {
+    height: 30px;
+    margin: 6px auto;
+    line-height: 30px;
+    width: 80%;
+}
+
+.rightModule .rightBox .line .colDark {
+    display: inline-block;
+    width: 24%;
+}
+
+.rightModule .rightBox .line input {
+    line-height: 24px;
+    border: 1px solid #ccc;
+    width: 74%;
+    float: right;
+}
+
+.rightModule .rightBox .registerBtn {
+    float: right;
+    cursor: pointer;
+}
+
+.rightModule .rightBox .textRight > a{
+    font-size: 16px;
+    font-weight: 120;
+    padding: 0;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.781);
+}
+
+.rightModule .rightBox .colWarning {
+    height: 20px;
+    color: #fb5b4a;
+    text-align: center;
+}
+
+
+/*footer*/
+footer {
+    height: 60px;
+    background: rgba(0, 0, 0, 0.5);
+    line-height: 60px;
+    text-align: center;
+    color: #fff;
+}
+
+
+/*
+    复用样式处理
+*/
+
+/*控制文本超出宽度显示 ...*/
+.ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.borderColor {
+    border-color: #cccccc;
+}
+
+.boxHidden {
+    display: none;
+}
+
+.clear{
+    clear: both;
+}
