@@ -75,7 +75,7 @@ routerApi.post('/user/register', function (req, res, next) {
                 username: username,
                 password: password,
                 isSuperAdmin: false,
-                isAdmin: true
+                isAdmin: false
             });
             userRegisterData.save();//
             return;
@@ -103,7 +103,7 @@ routerApi.post('/user/login', function (req, res, next) {
         console.log(userInfo);
         if (!userInfo) {
             responseData.code = '1';
-            responseData.message = '222用户名或密码错误';
+            responseData.message = '用户名或密码错误';
             res.json(responseData);
             return;
         }

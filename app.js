@@ -81,8 +81,8 @@ mongoose.connect('mongodb://172.21.2.236:27017/190110910216',{useMongoClient: tr
     }
     else {
         console.log('数据库连接成功');
-        app.listen(8081, 'localhost');
-        console.log('Server is running at http://localhost:8081');
+        app.listen(10216);
+        //console.log('Server is running at http://localhost:8081');
     }
 });
 
